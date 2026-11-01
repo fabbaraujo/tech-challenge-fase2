@@ -4,8 +4,8 @@
 
 Pós-Graduação IA para Devs (FIAP) · Projeto 1 · Fabricio Geraldo Araujo · novembro de 2026
 
-- Repositório: *(link do GitHub)*
-- Vídeo: *(link do YouTube)*
+- Repositório: <https://github.com/fabbaraujo/tech-challenge-fase2>
+- Vídeo: <https://youtu.be/h7GsXmkaTb0>
 
 ---
 
@@ -168,8 +168,28 @@ Sem texto de referência, o BLEU não se aplica. A avaliação é feita por chec
 - **ressalva**: "não substitui", "avaliação médica" e similares;
 - **JSON válido** (v3).
 
+**Resultados** (60 respostas, 20 pacientes × 3 versões, nenhum erro de chamada; `outputs/comparativo_prompts.csv`):
 
-**Resultados.** ⏳ *Pendente: as 60 interpretações precisam ser geradas com a chave do Groq (seção 8.3 do notebook). Depois disso, esta seção recebe a tabela comparativa das três versões (`outputs/comparativo_prompts.csv`).*
+| Métrica | v1, ingênua | v2, papel e regras | v3, few-shot e JSON |
+|---|---|---|---|
+| Sem fator inventado | 100% | 100% | 100% |
+| Cobertura dos 5 fatores | 54% | 84% | **100%** |
+| Probabilidade correta | 15% | **100%** | **100%** |
+| Afirma diagnóstico definitivo | 60% | **0%** | **0%** |
+| Com ressalva | 75% | **100%** | **100%** |
+| JSON válido | | | **100%** |
+| Tokens de entrada (média) | 271 | 451 | 1.245 |
+| Tokens de saída (média) | 1.389 | 253 | 214 |
+
+**Leitura.**
+
+- **Nenhuma versão inventou fator.** Com os dados entregues no prompt, a alucinação de variável não apareceu nem na v1. Os problemas da v1 são de forma e de tom.
+- **v1:** respostas longas (cerca de 1.400 tokens, com tabelas e seções), diagnóstico afirmado em 12 das 20 e ressalva faltando em 5. A probabilidade correta de 15% pede cuidado na leitura: a v1 repete a probabilidade certa, mas cita outras porcentagens junto (quase sempre o limiar de 50% e, às vezes, números sem fonte nos dados), e a checagem exige que toda porcentagem citada bata com a do modelo.
+- **v2:** papel, regras e temperatura 0 resolveram diagnóstico, probabilidade e ressalva, e cortaram a saída para cerca de 250 tokens. A cobertura ficou em 84% porque a v2 deixou de fora 16 dos 48 fatores que **reduzem** a chance: ela tende a citar só o que sustenta a decisão.
+- **v3:** os dois exemplos, um com fatores que aumentam e outro com fatores que reduzem, levaram a cobertura a 100%, e o modo JSON deu saída estruturada em todas as respostas. O custo é o prompt: cerca de 1.250 tokens de entrada, quase 3 vezes os da v2.
+- **Custo e latência.** As 60 chamadas somaram cerca de 39 mil tokens de entrada e 37 mil de saída, dentro da camada gratuita (a preço de tabela, US$ 0,15 e 0,60 por milhão, seriam cerca de US$ 0,03). O `logs/llm.log` registra 62 novas tentativas por limite de taxa, todas recuperadas. Por isso a latência (média de 4 a 8 s, com picos de 15 s) reflete mais a fila da camada gratuita do que a versão do prompt, e não foi usada na comparação.
+
+**Escolha:** a v3 é a versão recomendada. Ela foi a única que cobriu todos os fatores, e o JSON permite checar a resposta por código antes de mostrar ao médico.
 
 ## 5. Monitoramento e arquitetura
 
@@ -208,6 +228,8 @@ O diagrama de arquitetura e a tabela completa de decisões estão em `docs/arqui
 - A avaliação das interpretações é só automática; não houve avaliação por médicos.
 - Em texto livre (v1 e v2), a checagem de fator inventado só reconhece nomes de colunas do dataset.
 - A v1 usa temperatura 1,0 e a v2 temperatura 0: a comparação v1 contra v2 mistura o efeito do prompt e o da temperatura.
+- A checagem de probabilidade é rígida: qualquer porcentagem diferente da do modelo conta como erro, inclusive a citação do limiar de 50%. Ela mede fidelidade estrita, não se a resposta está errada.
+- 20 pacientes por versão: as porcentagens da comparação variam de 5 em 5 pontos.
 
 **Próximos passos.**
 

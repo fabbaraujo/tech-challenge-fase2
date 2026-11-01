@@ -6,8 +6,8 @@ Continuação do modelo de triagem de **Síndrome dos Ovários Policísticos (SO
 
 - Repositório da Fase 1 (Grupo 21): [fiap-tech-chalange-1-ia-para-devs](https://github.com/michel005/fiap-tech-chalange-1-ia-para-devs)
 - Dataset: [Polycystic ovary syndrome (PCOS), Kaggle](https://www.kaggle.com/datasets/prasoonkottarathil/polycystic-ovary-syndrome-pcos/data), arquivo `PCOS_data_without_infertility.xlsx`, aba `Full_new`
-- Vídeo de apresentação: *(link do YouTube)*
-- Relatório técnico: [`docs/relatorio_tecnico.md`](docs/relatorio_tecnico.md) (PDF em `docs/relatorio_tecnico.pdf`)
+- Vídeo de apresentação: <https://youtu.be/h7GsXmkaTb0>
+- Relatório técnico: [`docs/relatorio_tecnico.pdf`](docs/relatorio_tecnico.pdf) (fonte em [`docs/relatorio_tecnico.md`](docs/relatorio_tecnico.md))
 
 ## Resultados
 
@@ -21,6 +21,17 @@ F2 é a fitness do AG: a família do F1 com o recall pesando 4 vezes mais que a 
 
 CV = média da validação cruzada estratificada de 5 dobras no treino (432 pacientes). Teste = 109 pacientes, 36 com SOP, usado uma única vez.
 
+### Interpretação com LLM (20 pacientes × 3 versões de prompt)
+
+| Métrica | v1, ingênua | v2, papel e regras | v3, few-shot e JSON |
+|---|---|---|---|
+| Cobertura dos 5 fatores | 54% | 84% | 100% |
+| Probabilidade correta | 15% | 100% | 100% |
+| Afirma diagnóstico definitivo | 60% | 0% | 0% |
+| Com ressalva | 75% | 100% | 100% |
+
+Nenhuma versão inventou fator. Detalhes e leitura no relatório, seção 4.3.
+
 ## Estrutura
 
 ```
@@ -30,7 +41,7 @@ tech-challenge-fase2/
 ├── src/llm.py                            cliente LLM com troca de provedor, prompts e checagens
 ├── tests/test_ga.py, tests/test_llm.py   testes automatizados (pytest)
 ├── docs/arquitetura.md                   diagrama e decisões técnicas
-├── docs/relatorio_tecnico.md             relatório
+├── docs/relatorio_tecnico.pdf            relatório (fonte em .md)
 ├── datasets/                             PCOS_data_without_infertility.xlsx (Kaggle)
 └── outputs/                              tabelas, gráficos, runs do AG e interações com o LLM
 ```
