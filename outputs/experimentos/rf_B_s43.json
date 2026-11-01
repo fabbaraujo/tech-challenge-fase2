@@ -1,0 +1,282 @@
+{
+ "modelo": "rf",
+ "experimento": "B",
+ "semente": 43,
+ "config": {
+  "taxa_cruzamento": 0.9,
+  "selecao": "torneio",
+  "k_torneio": 3,
+  "elitismo": 2,
+  "geracoes": 15,
+  "tam_pop": 40,
+  "taxa_mutacao": 0.2
+ },
+ "melhores_params": {
+  "n_estimators": 276,
+  "max_depth": 14,
+  "min_samples_split": 14,
+  "max_features": 0.336,
+  "class_weight": "balanced"
+ },
+ "melhor_f2_cv": 0.8518347402262588,
+ "avaliacoes": 542,
+ "consultas": 600,
+ "duracao_s": 1383.8,
+ "historico": [
+  {
+   "geracao": 0,
+   "melhor": 0.8460668809419966,
+   "media": 0.8090139465073545,
+   "desvio": 0.019330942577964902,
+   "unicos": 40,
+   "avaliacoes": 40,
+   "consultas": 40,
+   "tempo_s": 114.815,
+   "melhor_params": {
+    "n_estimators": 294,
+    "max_depth": 15,
+    "min_samples_split": 20,
+    "max_features": 0.298,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 1,
+   "melhor": 0.8460668809419966,
+   "media": 0.8222494098372847,
+   "desvio": 0.011371991605665911,
+   "unicos": 40,
+   "avaliacoes": 75,
+   "consultas": 80,
+   "tempo_s": 119.529,
+   "melhor_params": {
+    "n_estimators": 294,
+    "max_depth": 15,
+    "min_samples_split": 20,
+    "max_features": 0.298,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 2,
+   "melhor": 0.8494380183640147,
+   "media": 0.825345687856144,
+   "desvio": 0.01443842119257922,
+   "unicos": 40,
+   "avaliacoes": 112,
+   "consultas": 120,
+   "tempo_s": 101.729,
+   "melhor_params": {
+    "n_estimators": 250,
+    "max_depth": 9,
+    "min_samples_split": 14,
+    "max_features": 0.335,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 3,
+   "melhor": 0.849596644206531,
+   "media": 0.8329704611542154,
+   "desvio": 0.012737115969515407,
+   "unicos": 40,
+   "avaliacoes": 150,
+   "consultas": 160,
+   "tempo_s": 95.837,
+   "melhor_params": {
+    "n_estimators": 314,
+    "max_depth": 15,
+    "min_samples_split": 14,
+    "max_features": 0.302,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 4,
+   "melhor": 0.849596644206531,
+   "media": 0.8336279370179766,
+   "desvio": 0.012227746673609924,
+   "unicos": 40,
+   "avaliacoes": 187,
+   "consultas": 200,
+   "tempo_s": 91.87,
+   "melhor_params": {
+    "n_estimators": 255,
+    "max_depth": 14,
+    "min_samples_split": 15,
+    "max_features": 0.331,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 5,
+   "melhor": 0.849596644206531,
+   "media": 0.8302573009188621,
+   "desvio": 0.01474506900528411,
+   "unicos": 40,
+   "avaliacoes": 224,
+   "consultas": 240,
+   "tempo_s": 95.983,
+   "melhor_params": {
+    "n_estimators": 255,
+    "max_depth": 14,
+    "min_samples_split": 15,
+    "max_features": 0.331,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 6,
+   "melhor": 0.849596644206531,
+   "media": 0.835149826909069,
+   "desvio": 0.014121650490971966,
+   "unicos": 40,
+   "avaliacoes": 261,
+   "consultas": 280,
+   "tempo_s": 97.493,
+   "melhor_params": {
+    "n_estimators": 255,
+    "max_depth": 14,
+    "min_samples_split": 15,
+    "max_features": 0.331,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 7,
+   "melhor": 0.8506538238351393,
+   "media": 0.8327905535389151,
+   "desvio": 0.01723187670494398,
+   "unicos": 40,
+   "avaliacoes": 296,
+   "consultas": 320,
+   "tempo_s": 95.198,
+   "melhor_params": {
+    "n_estimators": 267,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 8,
+   "melhor": 0.8506538238351393,
+   "media": 0.8362710723898477,
+   "desvio": 0.014672957614217176,
+   "unicos": 39,
+   "avaliacoes": 332,
+   "consultas": 360,
+   "tempo_s": 94.861,
+   "melhor_params": {
+    "n_estimators": 267,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 9,
+   "melhor": 0.8506538238351393,
+   "media": 0.8336848681884783,
+   "desvio": 0.015080469600143831,
+   "unicos": 39,
+   "avaliacoes": 367,
+   "consultas": 400,
+   "tempo_s": 87.577,
+   "melhor_params": {
+    "n_estimators": 266,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 10,
+   "melhor": 0.8506538238351393,
+   "media": 0.8349020283473718,
+   "desvio": 0.014109293325654183,
+   "unicos": 38,
+   "avaliacoes": 403,
+   "consultas": 440,
+   "tempo_s": 85.109,
+   "melhor_params": {
+    "n_estimators": 266,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 11,
+   "melhor": 0.8506538238351393,
+   "media": 0.8325222864259093,
+   "desvio": 0.013633635577739231,
+   "unicos": 40,
+   "avaliacoes": 441,
+   "consultas": 480,
+   "tempo_s": 89.587,
+   "melhor_params": {
+    "n_estimators": 266,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 12,
+   "melhor": 0.8506538238351393,
+   "media": 0.8358860835078856,
+   "desvio": 0.01283166438783378,
+   "unicos": 39,
+   "avaliacoes": 475,
+   "consultas": 520,
+   "tempo_s": 72.812,
+   "melhor_params": {
+    "n_estimators": 266,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 13,
+   "melhor": 0.8506538238351393,
+   "media": 0.836609012411612,
+   "desvio": 0.014052214538781162,
+   "unicos": 37,
+   "avaliacoes": 509,
+   "consultas": 560,
+   "tempo_s": 72.992,
+   "melhor_params": {
+    "n_estimators": 267,
+    "max_depth": 16,
+    "min_samples_split": 14,
+    "max_features": 0.324,
+    "class_weight": "balanced"
+   }
+  },
+  {
+   "geracao": 14,
+   "melhor": 0.8518347402262588,
+   "media": 0.84030237066744,
+   "desvio": 0.013144781783890216,
+   "unicos": 37,
+   "avaliacoes": 542,
+   "consultas": 600,
+   "tempo_s": 68.36,
+   "melhor_params": {
+    "n_estimators": 276,
+    "max_depth": 14,
+    "min_samples_split": 14,
+    "max_features": 0.336,
+    "class_weight": "balanced"
+   }
+  }
+ ]
+}
